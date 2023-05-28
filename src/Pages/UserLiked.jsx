@@ -31,6 +31,11 @@ const UserLiked = () => {
       dispatch(getUserLikedMovies(email));
     }
   }, [email]);
+  useEffect(() => {
+    if (email) {
+      dispatch(getUserLikedMovies(email));
+    }
+  }, []);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);

@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 const CardSlider = React.memo(({ title, data }) => {
   const dispatch = useDispatch();
   const likedMovies = useSelector((state) => state.netflix.likedMovies);
-  console.log(likedMovies,"likedMoviesx")
+
 
   const [showControllers, setShowControllers] = useState(false);
   const listRef = useRef();

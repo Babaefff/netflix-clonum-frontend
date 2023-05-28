@@ -9,7 +9,7 @@ console.log(API_KEY,"apii",TMDB_BASE_URL)
 
 import axios from "axios";
 
-console.log(import.meta.env.VITE_SERVER_URL,"urllllllll")
+
 
 const initialState = {
   movies: [],
@@ -98,7 +98,7 @@ export const getUserLikedMovies = createAsyncThunk(
     const {
       data: { movies },
     } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/user/liked/${email}`);
-    console.log(data,"qssqsqs")
+
     return movies;
   }
 );
@@ -121,13 +121,14 @@ export const addToLiked = createAsyncThunk(
   "netflix/addLiked",
   async ({ email, movieData }, { getState }) => {
 
-    console.log(email);
+
 
     await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/user/add`, {
       email,
       data: movieData,
     });
     const { likedMovies } = getState().netflix;
+    console.log(getState.netflix)
     const newLikedMovies = [...likedMovies, movieData];
 
     console.log(newLikedMovies, "newLikedMovies");

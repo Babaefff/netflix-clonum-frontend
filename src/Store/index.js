@@ -97,7 +97,8 @@ export const getUserLikedMovies = createAsyncThunk(
   async (email) => {
     const {
       data: { movies },
-    } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/user/liked/${email}`);
+    } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/user/liked/${email}`);
+    console.log(data,"qssqsqs")
     return movies;
   }
 );

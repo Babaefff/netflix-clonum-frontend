@@ -122,7 +122,7 @@ export const addToLiked = createAsyncThunk(
 
     console.log(email);
 
-    await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/user/add`, {
+    await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/user/add`, {
       email,
       data: movieData,
     });

@@ -22,7 +22,7 @@ const Card = React.memo(({ movieData, like }) => {
   const [key, setKey] = useState("");
   const [addToList, setAddToList] = useState(false);
   const likedMovies = useSelector((state) => state.netflix.likedMovies);
-  console.log(likedMovies);
+  
 
   const handlePlayerClick = () => {
     navigate("/player", { state: { key } });

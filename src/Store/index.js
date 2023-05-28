@@ -5,8 +5,11 @@ import {
   createSlice,
 } from "@reduxjs/toolkit";
 import { API_KEY, TMDB_BASE_URL } from "../Utils/constants";
+console.log(API_KEY,"apii",TMDB_BASE_URL)
 
 import axios from "axios";
+
+console.log(import.meta.env.VITE_SERVER_URL,"urllllllll")
 
 const initialState = {
   movies: [],
@@ -94,7 +97,7 @@ export const getUserLikedMovies = createAsyncThunk(
   async (email) => {
     const {
       data: { movies },
-    } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/liked/${email}`);
+    } = await axios.get(`${import.meta.env.VITE_SERVER_URL}/user/liked/${email}`);
     return movies;
   }
 );
@@ -102,10 +105,10 @@ export const getUserLikedMovies = createAsyncThunk(
 export const removeFromLikedMovies = createAsyncThunk(
   "netflix/deleteLiked",
   async ({ email, movieId }) => {
-    console.log(email);
+   
     const {
       data: { movies },
-    } = await axios.put(`${process.env.REACT_APP_SERVER_URL}api/user/delete`, {
+    } = await axios.put(`${import.meta.env.VITE_SERVER_URL}api/user/delete`, {
       email,
       movieId,
     });
@@ -116,10 +119,10 @@ export const removeFromLikedMovies = createAsyncThunk(
 export const addToLiked = createAsyncThunk(
   "netflix/addLiked",
   async ({ email, movieData }, { getState }) => {
-    console.log(movieData);
-    console.log(email);
 
-    await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/user/add`, {
+ 
+
+    await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/user/add`, {
       email,
       data: movieData,
     });

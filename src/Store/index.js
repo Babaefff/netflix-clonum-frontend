@@ -108,7 +108,7 @@ export const removeFromLikedMovies = createAsyncThunk(
    
     const {
       data: { movies },
-    } = await axios.put(`${import.meta.env.VITE_SERVER_URL}api/user/delete`, {
+    } = await axios.put(`${import.meta.env.VITE_SERVER_URL}/api/user/delete`, {
       email,
       movieId,
     });
@@ -120,9 +120,9 @@ export const addToLiked = createAsyncThunk(
   "netflix/addLiked",
   async ({ email, movieData }, { getState }) => {
 
- 
+    console.log(email);
 
-    await axios.post(`${process.env.VITE_SERVER_URL}/api/user/add`, {
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/user/add`, {
       email,
       data: movieData,
     });

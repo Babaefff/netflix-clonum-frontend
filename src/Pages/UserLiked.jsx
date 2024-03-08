@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, getGenres, getUserLikedMovies } from "../Store";
 import { firebaseAuth } from "../Utils/firebase-config";
-import NotAvailable from "../Components/NotAvailable";
+
 import styled from "styled-components";
 import { onAuthStateChanged } from "firebase/auth";
 import Navbar from "../Components/Navbar";
-import Slider from "../Components/Slider";
-import SelectGenre from "../Components/SelectGenre";
+
 import Card from "../Components/Card";
 
 const UserLiked = () => {

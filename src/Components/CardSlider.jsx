@@ -16,19 +16,32 @@ const CardSlider = React.memo(({ title, data }) => {
   const listRef = useRef();
   const [sliderPosition, setSliderPosition] = useState(0);
   const handleDirection = (direction) => {
-    700;
-    let distance = listRef.current.getBoundingClientRect().x - 70;
-
-    if (direction === "left" && sliderPosition > 0) {
-      630;
-      listRef.current.style.transform = `translateX(${270 + distance}px)`;
-      setSliderPosition(sliderPosition - 1);
-    }
-    if (direction === "right" && sliderPosition < 5) {
-      listRef.current.style.transform = `translateX(${-230 + distance}px)`;
-      setSliderPosition(sliderPosition + 1);
-    }
+    const cardWidth = 270; // Assuming each card is 270px wide
+    let distance = sliderPosition * cardWidth;
+  
+    const updateSlider = () => {
+      if (direction === "left" && sliderPosition > 0) {
+        distance -= cardWidth;
+        setSliderPosition(sliderPosition - 1);
+      }
+  
+      if (direction === "right" && sliderPosition < data.length - 1) {
+        distance += cardWidth;
+        setSliderPosition(sliderPosition + 1);
+      }
+    };
+  
+    requestAnimationFrame(() => {
+      updateSlider();
+      listRef.current.style.transform = `translateX(-${distance}px)`;
+    });
   };
+  
+
+  
+  
+  
+  
 
   
   const [email, setEmail] = useState(undefined);

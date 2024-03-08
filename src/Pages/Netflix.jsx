@@ -9,8 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, getGenres, getUserLikedMovies } from "../Store";
 import Slider from "../Components/Slider";
-import { onAuthStateChanged } from "firebase/auth";
-import { firebaseAuth } from "../Utils/firebase-config";
+
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false);
